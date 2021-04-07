@@ -19,3 +19,4 @@ function getMatrixElementsSum(/* matrix */) {
 }
 
 module.exports = getMatrixElementsSum;
+ 
