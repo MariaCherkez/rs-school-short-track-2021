@@ -16,9 +16,26 @@
  *   this.next = null;
  * }
  */
+function ListNode(x) {
+  this.value = x;
+  this.next = null;
+}
 
-function removeKFromList(/* l, k */) {
-  throw new Error('Not implemented');
+function removeKFromList(l, k) {
+  let tmp = l;
+  const res = [];
+  while (tmp) {
+    if (tmp.value !== k) {
+      res.push(new ListNode(tmp.value));
+    }
+    tmp = tmp.next;
+  }
+  let list = res[res.length - 1];
+  for (let i = res.length - 2; i >= 0; i--) {
+    res[i].next = res[i + 1];
+    list = res[i];
+  }
+  return list;
 }
 
 module.exports = removeKFromList;
